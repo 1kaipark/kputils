@@ -1,2 +1,2 @@
 # kputils
-small set of functions for convenience
+* small set of functions for convenience
