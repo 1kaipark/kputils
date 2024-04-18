@@ -9,26 +9,26 @@ def choose_directory(initialdir = None, title = None) -> str:
     root.withdraw()
     return filedialog.askdirectory(initialdir = initialdir, title = title)
 
-def choose_file(initialdir = None, title = None) -> str:
+def choose_file(initialdir = None, title = None, ext = None) -> str:
     import tkinter as tk
     from tkinter import filedialog
     root = tk.Tk()
     root.withdraw()
-    return filedialog.askopenfilename(initialdir = initialdir, title = title)
+    return filedialog.askopenfilename(initialdir = initialdir, title = title, defaultextension = ext)
 
-def choose_files(initialdir = None, title = None) -> list:
+def choose_files(initialdir = None, title = None, ext = None) -> list:
     import tkinter as tk
     from tkinter import filedialog
     root = tk.Tk()
     root.withdraw()
-    return filedialog.askopenfilenames(initialdir = initialdir, title = title)
+    return filedialog.askopenfilenames(initialdir = initialdir, title = title, defaultextension = ext)
 
-def write_file(bytes, ext = None):
+def write_file(bytes, title = None, initialdir = None, ext = None):
     import tkinter as tk
     from tkinter import filedialog
     root = tk.Tk()
     root.withdraw()
-    f =  filedialog.asksaveasfile(mode = 'w', defaultextension = ext)
+    f =  filedialog.asksaveasfile(title = title, initialdir = initialdir, mode = 'w', defaultextension = ext)
     if not f:
         return None
     f.write(bytes)
